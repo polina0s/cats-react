@@ -1,5 +1,37 @@
 @import 'bootstrap/scss/bootstrap';
 
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+  font-size: 100%;
+} 
+
 body {
-  background: lavender;
-  }
+  height: 100%;
+}
+
+.container {
+  min-height: 100%;
+}
+
+.spinner-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card-img-size {
+  height: 220px;
+  min-width: 100%;
+  object-fit: cover;
+}
