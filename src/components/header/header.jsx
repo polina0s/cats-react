@@ -15,10 +15,6 @@ function Header() {
           </a>
         </div>
       </nav>
-      <div className="container">
-        <div className="select-container d-flex" id="select-container"></div>
-        <div className="row" id="catalog-row"></div>
-      </div>
     </>
   );
 }

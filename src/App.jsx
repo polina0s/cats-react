@@ -7,7 +7,12 @@ function App() {
   return (
     <>
       <Header />
-      <CatalogCard />
+      <div className="container">
+        <div className="select-container d-flex" id="select-container"></div>
+        <div className="row" id="catalog-row">
+          <CatalogCard />
+        </div>
+      </div>
       <Navigation />
     </>
   );
