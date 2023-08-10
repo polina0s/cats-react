@@ -1,22 +1,26 @@
-import Navigation from './components/navigation/navigation';
-import Header from './components/header/header';
-// import CatalogCard from './components/catalogCard/catalogCard';
-import Loader from './components/loader/loader';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './main.scss';
+import ErrorPage from './pages/errorPage.jsx';
+import Catalog from './pages/catalog';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Catalog />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'cat/:catId',
+    element: <div />,
+  },
+]);
 
 function App() {
   return (
-    <>
-      <Header />
-      <div className="container">
-        <div className="select-container d-flex" id="select-container"></div>
-        <div className="row" id="catalog-row">
-          {/* <CatalogCard /> */}
-          <Loader />
-        </div>
-      </div>
-      <Navigation />
-    </>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   );
 }
 
