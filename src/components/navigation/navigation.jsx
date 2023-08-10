@@ -9,9 +9,20 @@ function Navigation({ defaultPage = 1, onPageChange }) {
   return (
     <nav>
       <Pagination className="justify-content-center">
-        <Pagination.Item disabled={isPrevDisabled}>1</Pagination.Item>
-        <Pagination.Item>1</Pagination.Item>
-        <Pagination.Item>1</Pagination.Item>
+        <Pagination.Item linkClassName="text-black" disabled={isPrevDisabled}>
+          Previous
+        </Pagination.Item>
+        {!isPrevDisabled && <Pagination.Item>{page - 1}</Pagination.Item>}
+        <Pagination.Item active linkClassName="bg-info border-info text-black">
+          {page}
+        </Pagination.Item>
+        <Pagination.Item linkClassName="text-black">{page + 1}</Pagination.Item>
+        {isPrevDisabled && (
+          <Pagination.Item linkClassName="text-black">
+            {page + 2}
+          </Pagination.Item>
+        )}
+        <Pagination.Item linkClassName="text-black">Next</Pagination.Item>
       </Pagination>
     </nav>
   );
