@@ -1,6 +1,7 @@
 import Navigation from './components/navigation/navigation';
 import Header from './components/header/header';
-import CatalogCard from './components/catalogCard/catalogCard';
+// import CatalogCard from './components/catalogCard/catalogCard';
+import Loader from './components/loader/loader';
 import './main.scss';
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
       <div className="container">
         <div className="select-container d-flex" id="select-container"></div>
         <div className="row" id="catalog-row">
-          <CatalogCard />
+          {/* <CatalogCard /> */}
+          <Loader />
         </div>
       </div>
       <Navigation />
