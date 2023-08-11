@@ -5,24 +5,23 @@ import Navigation from '../components/navigation/navigation';
 // import BreedCard from '../components/breedCard/breedCard';
 // import WithoutBreedCard from '../components/withoutBreedCard/withoutBreedCard';
 import Select from '../components/select/select';
-import {
-  BREEDS_KEYS,
-  BREEDS_MAP,
-  BREEDS_OPTIONS,
-} from '../components/config/breeds';
+import { BREEDS_OPTIONS } from '../components/config/breeds';
+import { ORDER_OPTIONS } from '../components/config/order';
 
 function Catalog() {
   return (
     <>
       <Header />
       <div className="container">
-        <div className="select-container d-flex" id="select-container"></div>
+        <div className="select-container d-flex" id="select-container">
+          <Select options={BREEDS_OPTIONS} />
+          <Select options={ORDER_OPTIONS} />
+        </div>
         <div className="row" id="catalog-row">
           {/* <CatalogCard /> */}
           {/* <Loader /> */}
           {/* <BreedCard /> */}
           {/* <WithoutBreedCard /> */}
-          <Select options={BREEDS_OPTIONS} />
         </div>
       </div>
       <Navigation />
