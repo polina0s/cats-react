@@ -1,7 +1,7 @@
 import Header from '../components/header/header';
 import Navigation from '../components/navigation/navigation';
-import CatalogCards from '../widgets/catalogCards';
-import CatalogSelects from '../widgets/catalogSelects';
+import CatalogCards from '../widgets/catalog/catalogCards';
+import CatalogSelects from '../widgets/catalog/catalogSelects';
 
 function Catalog() {
   return (
