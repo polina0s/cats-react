@@ -3,7 +3,7 @@ import Navigation from '../components/navigation/navigation';
 import Select from '../components/select/select';
 import { BREEDS_OPTIONS } from '../components/config/breeds';
 import { ORDER_OPTIONS } from '../components/config/order';
-import Cards from '../widgets/cards';
+import CatalogCards from '../widgets/catalogCards';
 
 function Catalog() {
   return (
@@ -15,7 +15,7 @@ function Catalog() {
           <Select options={ORDER_OPTIONS} />
         </div>
         <div className="row" id="catalog-row">
-          <Cards />
+          <CatalogCards />
         </div>
       </div>
       <Navigation />

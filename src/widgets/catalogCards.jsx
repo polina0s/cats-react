@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { BREEDS_KEYS, BREEDS_MAP } from '../components/config/breeds';
 import { ORDER_KEYS, ORDER_MAP } from '../components/config/order';
 
-const Cards = () => {
+const CatalogCards = () => {
   const [state, setState] = useState([]);
   const location = useLocation();
 
@@ -33,4 +33,4 @@ const Cards = () => {
   ));
 };
 
-export default Cards;
+export default CatalogCards;
