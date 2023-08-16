@@ -6,7 +6,7 @@ function Select({ onChange, options }) {
 
   const handleChange = (e) => {
     setSelect(e.target.value);
-    onChange?.();
+    onChange?.(e.target.value);
   };
 
   return (

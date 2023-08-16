@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { api } from '../../api/api';
 import queryString from 'query-string';
 import CatalogCard from '../../components/catalogCard/catalogCard';
+import { api } from '../../api/api';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { BREEDS_KEYS, BREEDS_MAP } from '../../components/config/breeds';
 import { ORDER_KEYS, ORDER_MAP } from '../../components/config/order';
