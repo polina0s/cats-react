@@ -8,9 +8,10 @@ import queryString from 'query-string';
 function Catalog() {
   const location = useLocation();
   const navigate = useNavigate();
+  const parsedQueryParams = queryString.parse(location.search);
+  console.log(parsedQueryParams);
 
   const handlePageChange = (value) => {
-    const parsedQueryParams = queryString.parse(location.search);
     const query = queryString.stringify(
       { ...parsedQueryParams, page: value },
       { skipNull: true },
@@ -29,7 +30,10 @@ function Catalog() {
           <CatalogCards />
         </div>
       </div>
-      <Navigation onPageChange={handlePageChange} />
+      <Navigation
+        onPageChange={handlePageChange}
+        defaultPage={+parsedQueryParams.page}
+      />
     </>
   );
 }
