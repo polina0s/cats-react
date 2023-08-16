@@ -1,9 +1,23 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../components/header/header';
 import Navigation from '../components/navigation/navigation';
 import CatalogCards from '../widgets/catalog/catalogCards';
 import CatalogSelects from '../widgets/catalog/catalogSelects';
+import queryString from 'query-string';
 
 function Catalog() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handlePageChange = (value) => {
+    const parsedQueryParams = queryString.parse(location.search);
+    const query = queryString.stringify(
+      { ...parsedQueryParams, page: value },
+      { skipNull: true },
+    );
+    navigate({ search: query });
+  };
+
   return (
     <>
       <Header />
@@ -15,7 +29,7 @@ function Catalog() {
           <CatalogCards />
         </div>
       </div>
-      <Navigation />
+      <Navigation onPageChange={handlePageChange} />
     </>
   );
 }

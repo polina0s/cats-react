@@ -5,6 +5,7 @@ import Select from '../../components/select/select';
 import { api } from '../../api/api';
 import { useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
+import { useLocation } from 'react-router-dom';
 
 const CatalogSelects = () => {
   const [breeds, setBreeds] = useState([]);
@@ -13,6 +14,7 @@ const CatalogSelects = () => {
   const [nameList, setNameList] = useState([]);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     api.getBreedsList().then((r) => setNameList(r));
@@ -21,11 +23,13 @@ const CatalogSelects = () => {
   const nameListOptions = [{ value: 'all', label: 'All breeds' }, ...nameList];
 
   const handleSelect = ({ breeds, order, breedId }) => {
+    const parsedQueryParams = queryString.parse(location.search);
     const query = queryString.stringify(
       {
         breeds: breeds,
         order: order,
         breedId: breedId,
+        ...parsedQueryParams,
       },
       { skipNull: true },
     );
