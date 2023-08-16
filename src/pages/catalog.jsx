@@ -9,7 +9,6 @@ function Catalog() {
   const location = useLocation();
   const navigate = useNavigate();
   const parsedQueryParams = queryString.parse(location.search);
-  console.log(parsedQueryParams);
 
   const handlePageChange = (value) => {
     const query = queryString.stringify(
@@ -32,7 +31,7 @@ function Catalog() {
       </div>
       <Navigation
         onPageChange={handlePageChange}
-        defaultPage={+parsedQueryParams.page}
+        defaultPage={+parsedQueryParams.page || 1}
       />
     </>
   );

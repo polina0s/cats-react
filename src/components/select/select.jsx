@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
-function Select({ onChange, options }) {
-  const [select, setSelect] = useState('random');
+function Select({ onChange, options, value }) {
+  const [select, setSelect] = useState('');
 
   const handleChange = (e) => {
     setSelect(e.target.value);
     onChange?.(e.target.value);
   };
+
+  useEffect(() => {
+    setSelect(value);
+  }, [value]);
 
   return (
     <Form.Select

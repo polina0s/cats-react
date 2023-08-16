@@ -15,6 +15,7 @@ const CatalogSelects = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const parsedQueryParams = queryString.parse(location.search);
 
   useEffect(() => {
     api.getBreedsList().then((r) => setNameList(r));
@@ -23,13 +24,12 @@ const CatalogSelects = () => {
   const nameListOptions = [{ value: 'all', label: 'All breeds' }, ...nameList];
 
   const handleSelect = ({ breeds, order, breedId }) => {
-    const parsedQueryParams = queryString.parse(location.search);
     const query = queryString.stringify(
       {
+        ...parsedQueryParams,
         breeds: breeds,
         order: order,
         breedId: breedId,
-        ...parsedQueryParams,
       },
       { skipNull: true },
     );
@@ -54,9 +54,21 @@ const CatalogSelects = () => {
 
   return (
     <>
-      <Select options={BREEDS_OPTIONS} onChange={handleChangeBreeds} />
-      <Select options={ORDER_OPTIONS} onChange={handleChangeOrder} />
-      <Select options={nameListOptions} onChange={handleChangeBreedId} />
+      <Select
+        options={BREEDS_OPTIONS}
+        onChange={handleChangeBreeds}
+        value={parsedQueryParams.breeds}
+      />
+      <Select
+        options={ORDER_OPTIONS}
+        onChange={handleChangeOrder}
+        value={parsedQueryParams.order}
+      />
+      <Select
+        options={nameListOptions}
+        onChange={handleChangeBreedId}
+        value={parsedQueryParams.breedId}
+      />
     </>
   );
 };
