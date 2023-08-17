@@ -14,17 +14,18 @@ function CatPageCard({ id }) {
 
   if (data.breeds) {
     const breed = data.breeds[0];
+    console.log(breed);
     return (
       <BreedCard
         url={data.url}
         name={breed.name}
         wiki={breed.wiki}
-        adaptibility={breed.adaptibility}
+        adaptibility={breed.adaptability}
         description={breed.description}
         childFriendly={breed.child_friendly}
         temperament={breed.temperament}
         dogFriendly={breed.dog_friendly}
-        health={breed.health}
+        health={breed.health_issues}
         strangerFriendly={breed.stranger_friendly}
         intelligence={breed.intelligence}
         lifeSpan={breed.life_span}

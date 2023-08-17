@@ -54,31 +54,31 @@ function BreedCard({
               <ListGroup className="mb-3 mt-2">
                 <ListGroup.Item>
                   <b>adaptibility</b>
-                  <ProgressBar variant="info" now={adaptibility} />
+                  <ProgressBar variant="info" now={adaptibility * 20} />
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <b>social needs</b>
-                  <ProgressBar variant="info" now={socialNeeds} />
+                  <ProgressBar variant="info" now={socialNeeds * 20} />
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <b>child friendly</b>
-                  <ProgressBar variant="info" now={childFriendly} />
+                  <ProgressBar variant="info" now={childFriendly * 20} />
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <b>dog friendly</b>
-                  <ProgressBar variant="info" now={dogFriendly} />
+                  <ProgressBar variant="info" now={dogFriendly * 20} />
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <b>stranger friendly</b>
-                  <ProgressBar variant="info" now={strangerFriendly} />
+                  <ProgressBar variant="info" now={strangerFriendly * 20} />
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <b>health issues</b>
-                  <ProgressBar variant="info" now={health} />
+                  <ProgressBar variant="info" now={health * 20} />
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <b>intelligence</b>
-                  <ProgressBar variant="info" now={intelligence} />
+                  <ProgressBar variant="info" now={intelligence * 20} />
                 </ListGroup.Item>
               </ListGroup>
               <Button variant="info" onClick={() => history.back()}>
