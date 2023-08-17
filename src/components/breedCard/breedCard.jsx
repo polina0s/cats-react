@@ -7,7 +7,7 @@ function BreedCard({
   url,
   name,
   wiki,
-  adaptibility,
+  adaptability,
   description,
   childFriendly,
   temperament,
@@ -53,8 +53,8 @@ function BreedCard({
               </Card.Link>
               <ListGroup className="mb-3 mt-2">
                 <ListGroup.Item>
-                  <b>adaptibility</b>
-                  <ProgressBar variant="info" now={adaptibility * 20} />
+                  <b>adaptability</b>
+                  <ProgressBar variant="info" now={adaptability * 20} />
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <b>social needs</b>

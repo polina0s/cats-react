@@ -20,7 +20,7 @@ function CatPageCard({ id }) {
         url={data.url}
         name={breed.name}
         wiki={breed.wiki}
-        adaptibility={breed.adaptability}
+        adaptability={breed.adaptability}
         description={breed.description}
         childFriendly={breed.child_friendly}
         temperament={breed.temperament}
