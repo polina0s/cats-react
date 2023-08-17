@@ -24,7 +24,7 @@ function BreedCard({
     <div style={style}>
       <Card className="mb-4">
         <Card.Header className="bg-info-subtle">
-          <b>name {name}</b>
+          <b>{name}</b>
         </Card.Header>
         <div className="row g-0">
           <div className="col-md-6">
@@ -81,7 +81,7 @@ function BreedCard({
                   <ProgressBar variant="info" now={intelligence} />
                 </ListGroup.Item>
               </ListGroup>
-              <Button variant="info" onClick={history.back()}>
+              <Button variant="info" onClick={() => history.back()}>
                 back
               </Button>
             </Card.Body>

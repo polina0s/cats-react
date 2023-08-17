@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './main.scss';
 import ErrorPage from './pages/errorPage.jsx';
 import Catalog from './pages/catalog';
+import CatPage from './pages/catPage';
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,8 @@ const router = createBrowserRouter([
   },
   {
     path: 'cat/:catId',
-    element: <div />,
+    element: <CatPage />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

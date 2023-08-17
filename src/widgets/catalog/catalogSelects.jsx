@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BREEDS_OPTIONS } from '../../components/config/breeds';
-import { ORDER_OPTIONS } from '../../components/config/order';
+import { ORDER_OPTIONS } from '../../components/config/order.js';
 import Select from '../../components/select/select';
 import { api } from '../../api/api';
 import { useNavigate } from 'react-router-dom';

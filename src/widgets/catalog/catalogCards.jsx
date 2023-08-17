@@ -4,7 +4,7 @@ import { api } from '../../api/api';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { BREEDS_KEYS, BREEDS_MAP } from '../../components/config/breeds';
-import { ORDER_KEYS, ORDER_MAP } from '../../components/config/order';
+import { ORDER_KEYS, ORDER_MAP } from '../../components/config/order.js';
 
 const CatalogCards = () => {
   const [state, setState] = useState([]);
@@ -29,7 +29,7 @@ const CatalogCards = () => {
   }, [breed, name, order, page]);
 
   return state.map((el) => (
-    <CatalogCard key={el.id} id={el.id} url={el.url} link={el.url} />
+    <CatalogCard key={el.id} id={el.id} url={el.url} link={`cat/${el.id}`} />
   ));
 };
 

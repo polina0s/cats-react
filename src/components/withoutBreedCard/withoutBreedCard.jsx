@@ -10,7 +10,9 @@ function WithoutBreedCard({ src }) {
       <Card>
         <Card.Img style={imgStyle} className="p-2" variant="top" src={src} />
         <Card.Body>
-          <Button variant="info">Back</Button>
+          <Button variant="info" onClick={() => history.back()}>
+            Back
+          </Button>
         </Card.Body>
       </Card>
     </div>
