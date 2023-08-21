@@ -1,16 +1,24 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../api/api';
 import BreedCard from '../../components/breedCard/breedCard';
+import Loader from '../../components/loader/loader';
 import WithoutBreedCard from '../../components/withoutBreedCard/withoutBreedCard';
 
-function CatPageCard({ id }) {
+function CatPageCard({ id, onCardLoad, isLoading }) {
   const [data, setData] = useState('');
 
   useEffect(() => {
-    api.getCatById(id).then((result) => {
-      setData(result);
-    });
-  }, [id]);
+    api
+      .getCatById(id)
+      .then((result) => {
+        setData(result);
+      })
+      .finally(() => onCardLoad?.());
+  }, [id, onCardLoad]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   if (data.breeds) {
     const breed = data.breeds[0];

@@ -63,18 +63,21 @@ const CatalogSelects = ({ disabled }) => {
         onChange={handleChangeBreeds}
         value={parsedQueryParams.breeds}
         disabled={disabled}
+        style={{ width: '170px' }}
       />
       <Select
         options={ORDER_OPTIONS}
         onChange={handleChangeOrder}
         value={parsedQueryParams.order}
         disabled={disabled}
+        style={{ width: '170px' }}
       />
       <Select
         options={nameListOptions}
         onChange={handleChangeBreedId}
         value={parsedQueryParams.breedId}
         disabled={nameListLoading || disabled}
+        style={{ width: '220px' }}
       />
     </>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
-function Select({ onChange, options, value, disabled }) {
+function Select({ onChange, options, value, disabled, style }) {
   const [select, setSelect] = useState('');
 
   const handleChange = (e) => {
@@ -16,7 +16,7 @@ function Select({ onChange, options, value, disabled }) {
   return (
     <Form.Select
       className="mb-4 me-2"
-      style={{ width: '170px' }}
+      style={style}
       onChange={handleChange}
       value={select}
       disabled={disabled}
