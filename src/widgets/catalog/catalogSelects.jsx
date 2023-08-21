@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { BREEDS_OPTIONS } from '../../components/config/breeds';
 import { ORDER_OPTIONS } from '../../components/config/order.js';
-import Select from '../../components/select/select';
+import { Select } from '../../components/select';
 import { api } from '../../api/api';
 import { useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
 
-const CatalogSelects = ({ disabled }) => {
+export const CatalogSelects = ({ disabled }) => {
   const [breeds, setBreeds] = useState([]);
   const [order, setOrder] = useState([]);
   const [breedId, setBreedId] = useState([]);
@@ -87,5 +87,3 @@ const CatalogSelects = ({ disabled }) => {
     </>
   );
 };
-
-export default CatalogSelects;

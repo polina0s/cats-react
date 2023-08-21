@@ -1,12 +1,12 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import Header from '../components/header/header';
-import Navigation from '../components/navigation/navigation';
-import CatalogCards from '../widgets/catalog/catalogCards';
-import CatalogSelects from '../widgets/catalog/catalogSelects';
+import { Header } from '../components/header';
+import { Navigation } from '../components/navigation';
+import { CatalogCards } from '../widgets/catalog';
+import { CatalogSelects } from '../widgets/catalog';
 import queryString from 'query-string';
 import { useCallback, useState } from 'react';
 
-function Catalog() {
+export function Catalog() {
   const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -46,5 +46,3 @@ function Catalog() {
     </>
   );
 }
-
-export default Catalog;

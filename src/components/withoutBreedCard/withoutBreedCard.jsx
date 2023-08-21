@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function WithoutBreedCard({ src }) {
+export function WithoutBreedCard({ src }) {
   const style = { maxWidth: '1120px', margin: '0px auto', textAlign: 'center' };
   const imgStyle = { maxHeight: '750px', objectFit: 'contain' };
 
@@ -18,5 +18,3 @@ function WithoutBreedCard({ src }) {
     </div>
   );
 }
-
-export default WithoutBreedCard;

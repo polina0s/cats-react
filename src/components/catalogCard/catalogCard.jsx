@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function CatalogCard({ url, id, link }) {
+export function CatalogCard({ url, id, link }) {
   return (
     <div className="col-xxl-3 col-md-4 col-sm-4 mb-4 text-center" id={id}>
       <Card className="text-center">
@@ -15,5 +15,3 @@ function CatalogCard({ url, id, link }) {
     </div>
   );
 }
-
-export default CatalogCard;

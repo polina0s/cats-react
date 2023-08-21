@@ -1,4 +1,4 @@
-function Header() {
+export function Header() {
   return (
     <>
       <nav className="navbar bg-info bg-gradient mb-4">
@@ -18,5 +18,3 @@ function Header() {
     </>
   );
 }
-
-export default Header;

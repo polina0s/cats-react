@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
-function BreedCard({
+export function BreedCard({
   url,
   name,
   wiki,
@@ -91,5 +91,3 @@ function BreedCard({
     </div>
   );
 }
-
-export default BreedCard;

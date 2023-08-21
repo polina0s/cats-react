@@ -1,0 +1,1 @@
+export { WithoutBreedCard } from './withoutBreedCard';

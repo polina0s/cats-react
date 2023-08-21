@@ -1,9 +1,9 @@
-import Header from '../components/header/header';
-import CatPageCard from '../widgets/catPage/catPageCard';
+import { Header } from '../components/header';
+import { CatPageCard } from '../widgets/catPage';
 import { useParams } from 'react-router-dom';
 import { useState, useCallback } from 'react';
 
-function CatPage() {
+export function CatPage() {
   const { catId } = useParams();
   const [loading, setLoading] = useState(true);
 
@@ -24,5 +24,3 @@ function CatPage() {
     </>
   );
 }
-
-export default CatPage;

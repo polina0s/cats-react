@@ -1,9 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './main.scss';
-import ErrorPage from './pages/errorPage.jsx';
-import Catalog from './pages/catalog';
-import CatPage from './pages/catPage';
+import { ErrorPage, Catalog, CatPage } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -18,12 +16,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
+export function App() {
   return (
     <React.StrictMode>
       <RouterProvider router={router} />
     </React.StrictMode>
   );
 }
-
-export default App;

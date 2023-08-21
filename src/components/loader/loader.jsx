@@ -1,6 +1,6 @@
 import Spinner from 'react-bootstrap/Spinner';
 
-function Loader() {
+export function Loader() {
   return (
     <div className="text-center spinner-container">
       <Spinner className="spinner" animation="border" role="status">
@@ -9,5 +9,3 @@ function Loader() {
     </div>
   );
 }
-
-export default Loader;

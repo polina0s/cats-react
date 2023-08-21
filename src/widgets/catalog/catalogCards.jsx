@@ -1,13 +1,13 @@
 import queryString from 'query-string';
-import CatalogCard from '../../components/catalogCard/catalogCard';
-import Loader from '../../components/loader/loader';
-import { api } from '../../api/api';
+import { CatalogCard } from '../../components/catalogCard';
+import { Loader } from '../../components/loader';
+import { api } from '../../api';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { BREEDS_KEYS, BREEDS_MAP } from '../../components/config/breeds';
 import { ORDER_KEYS, ORDER_MAP } from '../../components/config/order.js';
 
-const CatalogCards = ({ onCatsLoad, isLoading, beforeCatsLoad }) => {
+export const CatalogCards = ({ onCatsLoad, isLoading, beforeCatsLoad }) => {
   const [state, setState] = useState([]);
   const location = useLocation();
 
@@ -18,6 +18,7 @@ const CatalogCards = ({ onCatsLoad, isLoading, beforeCatsLoad }) => {
   const name = parsedQueryParams.breedId || null;
 
   useEffect(() => {
+    let ignore = false;
     beforeCatsLoad?.();
     api
       .getCats({
@@ -28,12 +29,20 @@ const CatalogCards = ({ onCatsLoad, isLoading, beforeCatsLoad }) => {
         breedId: name,
       })
       .then((r) => {
-        setState(r);
+        if (!ignore) {
+          setState(r);
+        }
       })
       .finally(() => {
-        onCatsLoad?.();
+        if (!ignore) {
+          onCatsLoad?.();
+        }
       });
-  }, [breed, name, order, page, onCatsLoad]);
+
+    return () => {
+      ignore = true;
+    };
+  }, [breed, name, order, page, onCatsLoad, beforeCatsLoad]);
 
   if (isLoading) return <Loader />;
 
@@ -41,5 +50,3 @@ const CatalogCards = ({ onCatsLoad, isLoading, beforeCatsLoad }) => {
     <CatalogCard key={el.id} id={el.id} url={el.url} link={`cat/${el.id}`} />
   ));
 };
-
-export default CatalogCards;

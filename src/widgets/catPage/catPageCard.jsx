@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../api/api';
-import BreedCard from '../../components/breedCard/breedCard';
-import Loader from '../../components/loader/loader';
-import WithoutBreedCard from '../../components/withoutBreedCard/withoutBreedCard';
+import { BreedCard } from '../../components/breedCard';
+import { Loader } from '../../components/loader';
+import { WithoutBreedCard } from '../../components/withoutBreedCard';
 
-function CatPageCard({ id, onCardLoad, isLoading }) {
+export function CatPageCard({ id, onCardLoad, isLoading }) {
   const [data, setData] = useState('');
 
   useEffect(() => {
     api
       .getCatById(id)
-      .then((result) => {
-        setData(result);
-      })
+      .then((result) => setData(result))
       .finally(() => onCardLoad?.());
   }, [id, onCardLoad]);
 
@@ -44,5 +42,3 @@ function CatPageCard({ id, onCardLoad, isLoading }) {
     return <WithoutBreedCard src={data.url} />;
   }
 }
-
-export default CatPageCard;
