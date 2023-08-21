@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { BREEDS_KEYS, BREEDS_MAP } from '../../components/config/breeds';
 import { ORDER_KEYS, ORDER_MAP } from '../../components/config/order.js';
 
-const CatalogCards = ({ onCatsLoad, isLoading }) => {
+const CatalogCards = ({ onCatsLoad, isLoading, beforeCatsLoad }) => {
   const [state, setState] = useState([]);
   const location = useLocation();
 
@@ -18,6 +18,7 @@ const CatalogCards = ({ onCatsLoad, isLoading }) => {
   const name = parsedQueryParams.breedId || null;
 
   useEffect(() => {
+    beforeCatsLoad?.();
     api
       .getCats({
         page: page,
@@ -26,7 +27,9 @@ const CatalogCards = ({ onCatsLoad, isLoading }) => {
         order: ORDER_MAP.get(order),
         breedId: name,
       })
-      .then((r) => setState(r))
+      .then((r) => {
+        setState(r);
+      })
       .finally(() => {
         onCatsLoad?.();
       });

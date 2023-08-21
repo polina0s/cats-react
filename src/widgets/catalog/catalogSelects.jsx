@@ -52,8 +52,13 @@ const CatalogSelects = ({ disabled }) => {
     handleSelect({ breeds: breeds, order: value, breedId: breedId });
   };
   const handleChangeBreedId = (value) => {
-    setBreedId(value);
-    handleSelect({ breeds: breeds, order: order, breedId: value });
+    const id = value === 'all' ? null : value;
+    setBreedId(id);
+    handleSelect({
+      breeds: breeds,
+      order: order,
+      breedId: id,
+    });
   };
 
   return (

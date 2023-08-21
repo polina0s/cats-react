@@ -21,6 +21,7 @@ function Catalog() {
   };
 
   const handleCatsLoad = useCallback(() => setLoading(false), []);
+  const handleBeforeCatsLoad = useCallback(() => setLoading(true), []);
 
   return (
     <>
@@ -30,7 +31,11 @@ function Catalog() {
           <CatalogSelects disabled={loading} />
         </div>
         <div className="row" id="catalog-row">
-          <CatalogCards isLoading={loading} onCatsLoad={handleCatsLoad} />
+          <CatalogCards
+            isLoading={loading}
+            onCatsLoad={handleCatsLoad}
+            beforeCatsLoad={handleBeforeCatsLoad}
+          />
         </div>
       </div>
       <Navigation
