@@ -7,18 +7,22 @@ import { useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
 
-const CatalogSelects = () => {
+const CatalogSelects = ({ disabled }) => {
   const [breeds, setBreeds] = useState([]);
   const [order, setOrder] = useState([]);
   const [breedId, setBreedId] = useState([]);
   const [nameList, setNameList] = useState([]);
+  const [nameListLoading, setNameListLoading] = useState(true);
 
   const navigate = useNavigate();
   const location = useLocation();
   const parsedQueryParams = queryString.parse(location.search);
 
   useEffect(() => {
-    api.getBreedsList().then((r) => setNameList(r));
+    api
+      .getBreedsList()
+      .then((r) => setNameList(r))
+      .finally(() => setNameListLoading(false));
   }, []);
 
   const nameListOptions = [{ value: 'all', label: 'All breeds' }, ...nameList];
@@ -58,16 +62,19 @@ const CatalogSelects = () => {
         options={BREEDS_OPTIONS}
         onChange={handleChangeBreeds}
         value={parsedQueryParams.breeds}
+        disabled={disabled}
       />
       <Select
         options={ORDER_OPTIONS}
         onChange={handleChangeOrder}
         value={parsedQueryParams.order}
+        disabled={disabled}
       />
       <Select
         options={nameListOptions}
         onChange={handleChangeBreedId}
         value={parsedQueryParams.breedId}
+        disabled={nameListLoading || disabled}
       />
     </>
   );

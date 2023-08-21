@@ -4,10 +4,12 @@ import Navigation from '../components/navigation/navigation';
 import CatalogCards from '../widgets/catalog/catalogCards';
 import CatalogSelects from '../widgets/catalog/catalogSelects';
 import queryString from 'query-string';
+import { useCallback, useState } from 'react';
 
 function Catalog() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
   const parsedQueryParams = queryString.parse(location.search);
 
   const handlePageChange = (value) => {
@@ -18,20 +20,23 @@ function Catalog() {
     navigate({ search: query });
   };
 
+  const handleCatsLoad = useCallback(() => setLoading(false), []);
+
   return (
     <>
       <Header />
       <div className="container">
         <div className="select-container d-flex" id="select-container">
-          <CatalogSelects />
+          <CatalogSelects disabled={loading} />
         </div>
         <div className="row" id="catalog-row">
-          <CatalogCards />
+          <CatalogCards isLoading={loading} onCatsLoad={handleCatsLoad} />
         </div>
       </div>
       <Navigation
         onPageChange={handlePageChange}
         defaultPage={+parsedQueryParams.page || 1}
+        disabled={loading}
       />
     </>
   );

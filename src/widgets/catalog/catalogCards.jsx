@@ -1,12 +1,13 @@
 import queryString from 'query-string';
 import CatalogCard from '../../components/catalogCard/catalogCard';
+import Loader from '../../components/loader/loader';
 import { api } from '../../api/api';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { BREEDS_KEYS, BREEDS_MAP } from '../../components/config/breeds';
 import { ORDER_KEYS, ORDER_MAP } from '../../components/config/order.js';
 
-const CatalogCards = () => {
+const CatalogCards = ({ onCatsLoad, isLoading }) => {
   const [state, setState] = useState([]);
   const location = useLocation();
 
@@ -25,8 +26,13 @@ const CatalogCards = () => {
         order: ORDER_MAP.get(order),
         breedId: name,
       })
-      .then((r) => setState(r));
-  }, [breed, name, order, page]);
+      .then((r) => setState(r))
+      .finally(() => {
+        onCatsLoad?.();
+      });
+  }, [breed, name, order, page, onCatsLoad]);
+
+  if (isLoading) return <Loader />;
 
   return state.map((el) => (
     <CatalogCard key={el.id} id={el.id} url={el.url} link={`cat/${el.id}`} />

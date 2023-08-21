@@ -14,7 +14,6 @@ function CatPageCard({ id }) {
 
   if (data.breeds) {
     const breed = data.breeds[0];
-    console.log(breed);
     return (
       <BreedCard
         url={data.url}
