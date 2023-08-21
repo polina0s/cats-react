@@ -1,6 +1,8 @@
+import './main.scss';
+
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './main.scss';
+
 import { Catalog, CatPage, ErrorPage } from './pages';
 
 const router = createBrowserRouter([

@@ -1,11 +1,12 @@
 import queryString from 'query-string';
-import { CatalogCard } from '../../components/catalogCard';
-import { Loader } from '../../components/loader';
-import { api } from '../../api';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+
+import { api } from '../../api';
+import { CatalogCard } from '../../components/catalogCard';
 import { BREEDS_KEYS, BREEDS_MAP } from '../../components/config/breeds';
 import { ORDER_KEYS, ORDER_MAP } from '../../components/config/order.js';
+import { Loader } from '../../components/loader';
 
 export const CatalogCards = ({ onCatsLoad, isLoading, beforeCatsLoad }) => {
   const [state, setState] = useState([]);

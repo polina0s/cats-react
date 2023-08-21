@@ -1,5 +1,5 @@
-import Pagination from 'react-bootstrap/Pagination';
 import { useState } from 'react';
+import Pagination from 'react-bootstrap/Pagination';
 
 export function Navigation({
   defaultPage = 1,

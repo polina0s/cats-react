@@ -1,10 +1,11 @@
+import queryString from 'query-string';
+import { useCallback, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
 import { Header } from '../components/header';
 import { Navigation } from '../components/navigation';
 import { CatalogCards } from '../widgets/catalog';
 import { CatalogSelects } from '../widgets/catalog';
-import queryString from 'query-string';
-import { useCallback, useState } from 'react';
 
 export function Catalog() {
   const location = useLocation();
