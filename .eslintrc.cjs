@@ -21,6 +21,7 @@ module.exports = {
     'no-dupe-args': 'error',
     'no-extra-semi': 'error',
     'no-unused-vars': 'error',
-    "react/prop-types": 'off'
+    "react/prop-types": 'off',
+    
   },
 }
