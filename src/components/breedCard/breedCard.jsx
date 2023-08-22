@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -32,7 +33,7 @@ export function BreedCard({
           <div className="col-md-6">
             <Card.Img
               src={url}
-              className={`${breedCard.img} img-fluid rounded-start p-2`}
+              className={clsx(breedCard.img, 'img-fluid rounded-start p-2')}
             ></Card.Img>
           </div>
           <div className="col-md-6">
