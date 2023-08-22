@@ -21,11 +21,12 @@ export function CatPageCard({ id, onCardLoad, isLoading }) {
 
   if (data.breeds) {
     const breed = data.breeds[0];
+    console.log(breed);
     return (
       <BreedCard
         url={data.url}
         name={breed.name}
-        wiki={breed.wiki}
+        wiki={breed.wikipedia_url}
         adaptability={breed.adaptability}
         description={breed.description}
         childFriendly={breed.child_friendly}
