@@ -2,6 +2,7 @@ import queryString from 'query-string';
 import { useCallback, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { CardContainer } from '../components/cardContainer/cardContainer';
 import { Header } from '../components/header';
 import { Navigation } from '../components/navigation';
 import { CatalogCards } from '../widgets/cards';
@@ -27,7 +28,7 @@ export function Catalog() {
   return (
     <>
       <Header />
-      <div className="container">
+      <CardContainer>
         <div className="select-container d-flex" id="select-container">
           <Selects disabled={loading} />
         </div>
@@ -38,7 +39,7 @@ export function Catalog() {
             beforeCatsLoad={handleBeforeCatsLoad}
           />
         </div>
-      </div>
+      </CardContainer>
       <Navigation
         onPageChange={handlePageChange}
         defaultPage={+parsedQueryParams.page || 1}

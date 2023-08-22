@@ -3,6 +3,8 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
+import breedCard from './breedCard.module.scss';
+
 export function BreedCard({
   url,
   name,
@@ -21,7 +23,7 @@ export function BreedCard({
   onClick,
 }) {
   return (
-    <div className="breedCard-cont">
+    <div className={breedCard.cont}>
       <Card className="mb-4">
         <Card.Header className="bg-info-subtle">
           <b>{name}</b>
@@ -30,7 +32,7 @@ export function BreedCard({
           <div className="col-md-6">
             <Card.Img
               src={url}
-              className="breedCard-img img-fluid rounded-start p-2"
+              className={`${breedCard.img} img-fluid rounded-start p-2`}
             ></Card.Img>
           </div>
           <div className="col-md-6">

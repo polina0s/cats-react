@@ -4,7 +4,7 @@ export function Header() {
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           <img
-            src="/public/pics/logo.png"
+            src="/pics/logo.png"
             alt="Logo"
             width="30"
             height="30"

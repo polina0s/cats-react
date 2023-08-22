@@ -1,9 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+import withoutBreedCard from './withoutBreedCard.module.scss';
+
 export function WithoutBreedCard({ src, onClick }) {
   return (
-    <div className="withoutBreedCard-cont">
+    <div className={withoutBreedCard.cont}>
       <Card>
         <Card.Img
           className="p-2 withoutBreedCard-img"
