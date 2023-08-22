@@ -1,16 +1,17 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-export function WithoutBreedCard({ src }) {
-  const style = { maxWidth: '1120px', margin: '0px auto', textAlign: 'center' };
-  const imgStyle = { maxHeight: '750px', objectFit: 'contain' };
-
+export function WithoutBreedCard({ src, onClick }) {
   return (
-    <div style={style}>
+    <div className="withoutBreedCard-cont">
       <Card>
-        <Card.Img style={imgStyle} className="p-2" variant="top" src={src} />
+        <Card.Img
+          className="p-2 withoutBreedCard-img"
+          variant="top"
+          src={src}
+        />
         <Card.Body>
-          <Button variant="info" onClick={() => history.back()}>
+          <Button variant="info" onClick={onClick}>
             Back
           </Button>
         </Card.Body>

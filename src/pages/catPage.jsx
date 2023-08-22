@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Header } from '../components/header';
-import { CatPageCard } from '../widgets/catPage';
+import { CatCard } from '../widgets/catCard';
 
 export function CatPage() {
   const { catId } = useParams();
@@ -15,11 +15,7 @@ export function CatPage() {
       <Header />
       <div className="container">
         <div className="row" id="catalog-row">
-          <CatPageCard
-            id={catId}
-            isLoading={loading}
-            onCardLoad={handleCardLoad}
-          />
+          <CatCard id={catId} isLoading={loading} onCardLoad={handleCardLoad} />
         </div>
       </div>
     </>

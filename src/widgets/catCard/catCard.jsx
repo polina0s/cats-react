@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { api } from '../../api/api';
 import { BreedCard } from '../../components/breedCard';
 import { Loader } from '../../components/loader';
 import { WithoutBreedCard } from '../../components/withoutBreedCard';
 
-export function CatPageCard({ id, onCardLoad, isLoading }) {
+export function CatCard({ id, onCardLoad, isLoading }) {
   const [data, setData] = useState('');
+  const navigate = useNavigate();
+
+  const backToPrevPage = () => navigate(-1);
 
   useEffect(() => {
     api
@@ -19,9 +23,8 @@ export function CatPageCard({ id, onCardLoad, isLoading }) {
     return <Loader />;
   }
 
-  if (data.breeds) {
+  if (data.breeds?.length) {
     const breed = data.breeds[0];
-    console.log(breed);
     return (
       <BreedCard
         url={data.url}
@@ -38,9 +41,10 @@ export function CatPageCard({ id, onCardLoad, isLoading }) {
         lifeSpan={breed.life_span}
         origin={breed.origin}
         socialNeeds={breed.social_needs}
+        onClick={backToPrevPage}
       />
     );
-  } else {
-    return <WithoutBreedCard src={data.url} />;
   }
+
+  return <WithoutBreedCard src={data.url} onClick={backToPrevPage} />;
 }

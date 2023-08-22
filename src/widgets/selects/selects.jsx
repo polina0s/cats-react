@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 import { api } from '../../api/api';
-import { BREEDS_OPTIONS } from '../../components/config/breeds';
-import { ORDER_OPTIONS } from '../../components/config/order';
 import { Select } from '../../components/select';
+import { BREEDS_OPTIONS } from '../../config/breeds';
+import { ORDER_OPTIONS } from '../../config/order';
 
-export const CatalogSelects = ({ disabled }) => {
+export function Selects({ disabled }) {
   const [breeds, setBreeds] = useState([]);
   const [order, setOrder] = useState([]);
   const [breedId, setBreedId] = useState([]);
@@ -69,22 +69,19 @@ export const CatalogSelects = ({ disabled }) => {
         onChange={handleChangeBreeds}
         value={parsedQueryParams.breeds}
         disabled={disabled}
-        style={{ width: '170px' }}
       />
       <Select
         options={ORDER_OPTIONS}
         onChange={handleChangeOrder}
         value={parsedQueryParams.order}
         disabled={disabled}
-        style={{ width: '170px' }}
       />
       <Select
         options={nameListOptions}
         onChange={handleChangeBreedId}
         value={parsedQueryParams.breedId}
         disabled={nameListLoading || disabled}
-        style={{ width: '220px' }}
       />
     </>
   );
-};
+}

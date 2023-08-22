@@ -4,8 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Header } from '../components/header';
 import { Navigation } from '../components/navigation';
-import { CatalogCards } from '../widgets/catalog';
-import { CatalogSelects } from '../widgets/catalog';
+import { CatalogCards } from '../widgets/cards';
+import { Selects } from '../widgets/selects';
 
 export function Catalog() {
   const location = useLocation();
@@ -29,7 +29,7 @@ export function Catalog() {
       <Header />
       <div className="container">
         <div className="select-container d-flex" id="select-container">
-          <CatalogSelects disabled={loading} />
+          <Selects disabled={loading} />
         </div>
         <div className="row" id="catalog-row">
           <CatalogCards

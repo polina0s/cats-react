@@ -18,10 +18,10 @@ export function BreedCard({
   lifeSpan,
   origin,
   socialNeeds,
+  onClick,
 }) {
-  const style = { maxWidth: '1120px', margin: '0px auto' };
   return (
-    <div style={style}>
+    <div className="breedCard-cont">
       <Card className="mb-4">
         <Card.Header className="bg-info-subtle">
           <b>{name}</b>
@@ -30,7 +30,7 @@ export function BreedCard({
           <div className="col-md-6">
             <Card.Img
               src={url}
-              className="breedCard img-fluid rounded-start p-2"
+              className="breedCard-img img-fluid rounded-start p-2"
             ></Card.Img>
           </div>
           <div className="col-md-6">
@@ -81,7 +81,7 @@ export function BreedCard({
                   <ProgressBar variant="info" now={intelligence * 20} />
                 </ListGroup.Item>
               </ListGroup>
-              <Button variant="info" onClick={() => history.back()}>
+              <Button variant="info" onClick={onClick}>
                 back
               </Button>
             </Card.Body>

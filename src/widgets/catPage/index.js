@@ -1,1 +1,0 @@
-export { CatPageCard } from './catPageCard';

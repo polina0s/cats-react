@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
-export function Select({ onChange, options, value, disabled, style }) {
+export function Select({ onChange, options, value, disabled }) {
   const [select, setSelect] = useState('');
 
   const handleChange = (e) => {
@@ -16,15 +16,14 @@ export function Select({ onChange, options, value, disabled, style }) {
   return (
     <Form.Select
       className="mb-4 me-2"
-      style={style}
       onChange={handleChange}
       value={select}
       disabled={disabled}
     >
-      {options.map((obj) => {
+      {options.map((opt) => {
         return (
-          <option key={obj.value} value={obj.value}>
-            {obj.label}
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
           </option>
         );
       })}
