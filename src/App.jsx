@@ -16,6 +16,11 @@ const router = createBrowserRouter([
     element: <CatPage />,
     errorElement: <ErrorPage />,
   },
+
+  {
+    path: 'error',
+    element: <ErrorPage />,
+  },
 ]);
 
 export function App() {

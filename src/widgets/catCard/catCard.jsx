@@ -16,6 +16,7 @@ export function CatCard({ id, onCardLoad, isLoading }) {
     api
       .getCatById(id)
       .then((result) => setData(result))
+      .catch(() => navigate('error'))
       .finally(() => onCardLoad?.());
   }, [id, onCardLoad]);
 
